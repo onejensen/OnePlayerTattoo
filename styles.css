@@ -26,6 +26,10 @@ body {
 
 }
 
+.lightwidget-widget {
+    background-color: rgba(211, 0, 0, 0);
+}
+
 ::-webkit-scrollbar {
     width: 15px;
 }
