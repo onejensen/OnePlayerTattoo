@@ -6,8 +6,7 @@
     font-style: normal;
 
 }
-
-body {
+html {
     margin: 0;
     font-family: 'WebFont', 'imperfecta_regularregular', Share Tech Mono, sans-serif;
     color: white;
@@ -22,6 +21,10 @@ body {
     width: auto;
     height: auto;
     background-position: center center;
+}
+
+body {
+    
 
 
 }
