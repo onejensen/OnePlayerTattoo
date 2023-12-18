@@ -23,12 +23,6 @@ html {
     background-position: center center;
 }
 
-body {
-    
-
-
-}
-
 .lightwidget-widget {
     background-color: rgba(211, 0, 0, 0);
 }
@@ -68,12 +62,7 @@ p {
     font-size: x-large;
 }
 
-#ig {
-    margin: 1%;
-    display: flex;
-    align-items: center;
-    width: 80%;
-}
+
 
 .social {
     margin: 5px;
