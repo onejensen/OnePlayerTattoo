@@ -138,7 +138,8 @@ a { text-decoration: none; }
     margin: 0 8px;
 }
 
-h1 {
+.title-one,
+.title-tattoo {
     font-family: 'Anton', sans-serif;
     font-size: clamp(72px, 15vw, 130px);
     color: #fff;
@@ -150,7 +151,7 @@ h1 {
     cursor: default;
 }
 
-h2 {
+.title-player {
     font-family: 'Anton', sans-serif;
     font-size: clamp(54px, 10vw, 92px);
     -webkit-text-stroke: 2px rgba(238, 38, 35, 0.9);
@@ -158,18 +159,6 @@ h2 {
     display: block;
     letter-spacing: 4px;
     text-transform: uppercase;
-    line-height: 0.9;
-    cursor: default;
-}
-
-h3 {
-    font-family: 'Anton', sans-serif;
-    font-size: clamp(72px, 15vw, 130px);
-    color: #fff;
-    display: block;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    text-shadow: 0 4px 60px rgba(0, 0, 0, 0.9);
     line-height: 0.9;
     cursor: default;
 }
