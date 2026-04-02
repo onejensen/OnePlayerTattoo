@@ -612,40 +612,6 @@ footer a:hover { color: #ee2623; }
     margin-bottom: 30px;
 }
 
-/* ── Language Switcher ───────────────────────── */
-.lang-switcher {
-    display: flex;
-    gap: 8px;
-    justify-content: center;
-    margin: 20px 0 0;
-    flex-wrap: wrap;
-}
-
-.lang-btn {
-    font-size: 1.6em;
-    padding: 6px 10px;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 10px;
-    background: rgba(255, 255, 255, 0.04);
-    cursor: pointer;
-    transition: all 0.3s ease;
-    line-height: 1;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-}
-
-.lang-btn:hover {
-    background: rgba(238, 38, 35, 0.12);
-    border-color: rgba(238, 38, 35, 0.3);
-    transform: translateY(-2px);
-}
-
-.lang-btn.active {
-    background: rgba(238, 38, 35, 0.2);
-    border-color: rgba(238, 38, 35, 0.5);
-    box-shadow: 0 0 12px rgba(238, 38, 35, 0.25);
-}
-
 /* ── Paper / Aftercare page ──────────────────── */
 .paper {
     background: #faf9f6;

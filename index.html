@@ -82,15 +82,6 @@
                 <img class="site-logo" src="LOGO_PLAYER.png" alt="One Player Tattoo">
             </div>
 
-            <!-- Language switcher -->
-            <div class="lang-switcher fade-in">
-                <button class="lang-btn active" data-lang="es" title="Español">🇪🇸</button>
-                <button class="lang-btn" data-lang="en" title="English">🇬🇧</button>
-                <button class="lang-btn" data-lang="fr" title="Français">🇫🇷</button>
-                <button class="lang-btn" data-lang="it" title="Italiano">🇮🇹</button>
-                <button class="lang-btn" data-lang="de" title="Deutsch">🇩🇪</button>
-            </div>
-
             <div class="headline-block">
                 <span class="eyebrow" data-i18n="eyebrow">Estudio de tatuajes profesional</span>
                 <span class="location-line">Est. 2019 <span class="sep">·</span> Llucmajor, Mallorca</span>
@@ -268,14 +259,14 @@
                 const key = el.getAttribute('data-i18n');
                 if (translations[lang]?.[key]) el.innerHTML = translations[lang][key];
             });
-            document.querySelectorAll('.lang-btn').forEach(btn => {
-                btn.classList.toggle('active', btn.dataset.lang === lang);
-            });
         }
 
-        document.querySelectorAll('.lang-btn').forEach(btn => {
-            btn.addEventListener('click', () => setLanguage(btn.dataset.lang));
-        });
+        (function () {
+            const supported = Object.keys(translations);
+            const preferred = (navigator.languages || [navigator.language]).map(l => l.slice(0, 2).toLowerCase());
+            const lang = preferred.find(l => supported.includes(l)) || 'es';
+            setLanguage(lang);
+        })();
     </script>
 
     <script>
