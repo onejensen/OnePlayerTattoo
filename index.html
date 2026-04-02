@@ -82,8 +82,17 @@
                 <img class="site-logo" src="LOGO_PLAYER.png" alt="One Player Tattoo">
             </div>
 
+            <!-- Language switcher -->
+            <div class="lang-switcher fade-in">
+                <button class="lang-btn active" data-lang="es" title="Español">🇪🇸</button>
+                <button class="lang-btn" data-lang="en" title="English">🇬🇧</button>
+                <button class="lang-btn" data-lang="fr" title="Français">🇫🇷</button>
+                <button class="lang-btn" data-lang="it" title="Italiano">🇮🇹</button>
+                <button class="lang-btn" data-lang="de" title="Deutsch">🇩🇪</button>
+            </div>
+
             <div class="headline-block">
-                <span class="eyebrow">Estudio de tatuajes profesional</span>
+                <span class="eyebrow" data-i18n="eyebrow">Estudio de tatuajes profesional</span>
                 <span class="location-line">Est. 2019 <span class="sep">·</span> Llucmajor, Mallorca</span>
 
                 <div class="title-one">ONE</div>
@@ -91,13 +100,13 @@
                 <div class="title-tattoo">TATTOO</div>
 
                 <div class="styles-line">
-                    <span class="style-word">Tradicional</span>
+                    <span class="style-word" data-i18n="style_trad">Tradicional</span>
                     <span class="style-dot"></span>
-                    <span class="style-word">Japonés</span>
+                    <span class="style-word" data-i18n="style_jap">Japonés</span>
                     <span class="style-dot"></span>
-                    <span class="style-word">Anime</span>
+                    <span class="style-word" data-i18n="style_anime">Anime</span>
                     <span class="style-dot"></span>
-                    <span class="style-word">Fineline</span>
+                    <span class="style-word" data-i18n="style_fine">Fineline</span>
                 </div>
 
                 <div class="action-buttons">
@@ -105,7 +114,7 @@
                         <div class="action-icon">
                             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1C9.61 21 3 14.39 3 6a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.46.57 3.58a1 1 0 01-.25 1.01l-2.2 2.2z"/></svg>
                         </div>
-                        <span class="action-label">Llamar</span>
+                        <span class="action-label" data-i18n="label_call">Llamar</span>
                     </a>
                     <a class="action-btn" href="https://wa.me/+34623020424" target="_blank" rel="noopener" aria-label="WhatsApp">
                         <div class="action-icon">
@@ -117,7 +126,7 @@
                         <div class="action-icon">
                             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/></svg>
                         </div>
-                        <span class="action-label">Cómo llegar</span>
+                        <span class="action-label" data-i18n="label_maps">Cómo llegar</span>
                     </a>
                 </div>
             </div>
@@ -126,10 +135,10 @@
         <div class="cta-zone">
             <a class="btn-cta" href="https://wa.me/+34623020424" target="_blank" rel="noopener">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-                Reservar cita
+                <span data-i18n="cta">Reservar cita</span>
             </a>
             <div class="btn-secondary-row">
-                <a class="btn" href="cuidados.html">Cuidados del tatuaje</a>
+                <a class="btn" href="cuidados.html" data-i18n="btn_care">Cuidados del tatuaje</a>
             </div>
             <div class="social-row">
                 <a class="social-icon" href="https://www.instagram.com/oneplayertattoo/" target="_blank" rel="noopener" aria-label="Instagram">
@@ -152,10 +161,10 @@
             07620 Llucmajor, Mallorca
         </div>
         <div class="badges">
-            <span class="badge">100% Vegano</span>
-            <span class="badge">100% Higiénico</span>
+            <span class="badge" data-i18n="badge_vegan">100% Vegano</span>
+            <span class="badge" data-i18n="badge_clean">100% Higiénico</span>
             <span class="badge badge-accent">We speak English</span>
-            <span class="badge">Accesible</span>
+            <span class="badge" data-i18n="badge_access">Accesible</span>
         </div>
     </div>
 
@@ -192,7 +201,7 @@
             </a>
         </div>
         <div class="ig-cta">
-            <a class="btn" href="https://www.instagram.com/oneplayertattoo/" target="_blank" rel="noopener">Ver más en Instagram</a>
+            <a class="btn" href="https://www.instagram.com/oneplayertattoo/" target="_blank" rel="noopener" data-i18n="ig_more">Ver más en Instagram</a>
         </div>
     </section>
 
@@ -201,8 +210,73 @@
             <img class="footer-logo" src="LOGO_PLAYER.png" alt="One Player Tattoo">
             <span class="footer-name">One Player Tattoo</span>
         </div>
-        <a href="privacidad.html">Privacidad</a>
+        <a href="privacidad.html" data-i18n="privacy">Privacidad</a>
     </footer>
+
+    <script>
+        const translations = {
+            es: {
+                eyebrow: 'Estudio de tatuajes profesional',
+                style_trad: 'Tradicional', style_jap: 'Japonés', style_anime: 'Anime', style_fine: 'Fineline',
+                label_call: 'Llamar', label_maps: 'Cómo llegar',
+                cta: 'Reservar cita', btn_care: 'Cuidados del tatuaje',
+                ig_more: 'Ver más en Instagram',
+                badge_vegan: '100% Vegano', badge_clean: '100% Higiénico', badge_access: 'Accesible',
+                privacy: 'Privacidad'
+            },
+            en: {
+                eyebrow: 'Professional tattoo studio',
+                style_trad: 'Traditional', style_jap: 'Japanese', style_anime: 'Anime', style_fine: 'Fineline',
+                label_call: 'Call', label_maps: 'Directions',
+                cta: 'Book appointment', btn_care: 'Tattoo aftercare',
+                ig_more: 'See more on Instagram',
+                badge_vegan: '100% Vegan', badge_clean: '100% Hygienic', badge_access: 'Accessible',
+                privacy: 'Privacy'
+            },
+            fr: {
+                eyebrow: 'Studio de tatouage professionnel',
+                style_trad: 'Traditionnel', style_jap: 'Japonais', style_anime: 'Anime', style_fine: 'Fineline',
+                label_call: 'Appeler', label_maps: 'Itinéraire',
+                cta: 'Prendre rendez-vous', btn_care: 'Soins du tatouage',
+                ig_more: 'Voir plus sur Instagram',
+                badge_vegan: '100% Végane', badge_clean: '100% Hygiénique', badge_access: 'Accessible',
+                privacy: 'Confidentialité'
+            },
+            it: {
+                eyebrow: 'Studio di tatuaggi professionale',
+                style_trad: 'Tradizionale', style_jap: 'Giapponese', style_anime: 'Anime', style_fine: 'Fineline',
+                label_call: 'Chiama', label_maps: 'Come arrivare',
+                cta: 'Prenota appuntamento', btn_care: 'Cura del tatuaggio',
+                ig_more: 'Vedi di più su Instagram',
+                badge_vegan: '100% Vegano', badge_clean: '100% Igienico', badge_access: 'Accessibile',
+                privacy: 'Privacy'
+            },
+            de: {
+                eyebrow: 'Professionelles Tattoo-Studio',
+                style_trad: 'Traditional', style_jap: 'Japanisch', style_anime: 'Anime', style_fine: 'Fineline',
+                label_call: 'Anrufen', label_maps: 'Route',
+                cta: 'Termin buchen', btn_care: 'Tattoo-Pflege',
+                ig_more: 'Mehr auf Instagram',
+                badge_vegan: '100% Vegan', badge_clean: '100% Hygienisch', badge_access: 'Barrierefrei',
+                privacy: 'Datenschutz'
+            }
+        };
+
+        function setLanguage(lang) {
+            document.documentElement.lang = lang;
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang]?.[key]) el.innerHTML = translations[lang][key];
+            });
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.lang === lang);
+            });
+        }
+
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.addEventListener('click', () => setLanguage(btn.dataset.lang));
+        });
+    </script>
 
     <script>
         const observer = new IntersectionObserver((entries) => {
