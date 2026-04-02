@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;600&display=swap');
 
 @font-face {
     font-family: 'imperfecta_regularregular';
@@ -16,15 +16,9 @@
 }
 
 html {
-    font-family: 'Inter', 'imperfecta_regularregular', sans-serif;
+    font-family: 'Inter', sans-serif;
     color: #f0f0f0;
-    letter-spacing: 1.5px;
-    background-image: url('images/estudioone1.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
-    background-position: center center;
-    background-color: #0a0a0a;
+    background-color: #050505;
     scroll-behavior: smooth;
 }
 
@@ -32,267 +26,576 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    position: relative;
+}
+
+/* Grain texture overlay */
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 100;
+    opacity: 0.45;
 }
 
 /* ── Scrollbar ────────────────────────────────── */
-::-webkit-scrollbar {
-    width: 10px;
-}
-
-::-webkit-scrollbar-track {
-    background: #111;
-}
-
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: #111; }
 ::-webkit-scrollbar-thumb {
     background: linear-gradient(180deg, #ee2623, #8b0000);
     border-radius: 5px;
 }
 
-/* ── Layout ───────────────────────────────────── */
-.container {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    text-align: center;
-    flex: 1;
-    padding-bottom: 40px;
+a { text-decoration: none; }
+
+/* ── Top stripe ───────────────────────────────── */
+.stripe-top {
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, #ee2623 0%, #8b0000 50%, #ee2623 100%);
+    position: relative;
+    z-index: 10;
+    flex-shrink: 0;
 }
 
-.centro {
-    margin: 5% 5% 0;
+/* ── Hero ─────────────────────────────────────── */
+.hero {
+    position: relative;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    justify-content: space-between;
+    overflow: hidden;
+    background-image: url('images/estudio-nuevo.jpg');
+    background-size: cover;
+    background-position: center 30%;
+    background-attachment: fixed;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background: linear-gradient(
+        180deg,
+        rgba(4,4,4,0.78) 0%,
+        rgba(4,4,4,0.62) 25%,
+        rgba(4,4,4,0.68) 55%,
+        rgba(4,4,4,0.96) 100%
+    );
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    padding: 40px 40px 0;
 }
 
 /* ── Logo ─────────────────────────────────────── */
-.logo {
-    box-shadow: 0 0 30px rgba(238, 38, 35, 0.15);
-    transition: box-shadow 0.4s ease;
+.header-row {
+    display: flex;
+    justify-content: center;
 }
 
-.logo:hover {
-    box-shadow: 0 0 50px rgba(238, 38, 35, 0.35);
+.site-logo {
+    height: 110px;
+    width: auto;
+    opacity: 0.45;
 }
 
-/* ── Typography ───────────────────────────────── */
-h1 {
-    font-family: 'Bebas Neue', 'imperfecta_regularregular', sans-serif;
-    font-size: 2.8em;
-    margin-top: 40px;
-    letter-spacing: 6px;
-    text-shadow: 0 0 20px rgba(238, 38, 35, 0.5),
-        0 0 40px rgba(238, 38, 35, 0.2);
-    background: linear-gradient(135deg, #ffffff, #cccccc);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+/* ── Headline block ───────────────────────────── */
+.headline-block {
+    margin-top: 28px;
+    text-align: center;
 }
 
-h2 {
-    font-family: 'Bebas Neue', 'imperfecta_regularregular', sans-serif;
-    font-size: 1.4em;
-    margin-top: 4px;
-    margin-bottom: 18px;
-    letter-spacing: 8px;
-    color: rgba(238, 38, 35, 0.7);
-    text-transform: uppercase;
-}
-
-p {
-    line-height: 1.8;
-    font-size: 1.05em;
+.eyebrow {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
     font-weight: 300;
-    max-width: 600px;
-    color: #d4d4d4;
+    letter-spacing: 8px;
+    text-transform: uppercase;
+    color: rgba(238, 38, 35, 0.85);
+    margin-bottom: 5px;
+    display: block;
 }
 
-h1,
-p {
+.location-line {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 300;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.55);
+    display: block;
+    margin-bottom: 18px;
+}
+
+.location-line .sep {
+    color: rgba(238, 38, 35, 0.6);
+    margin: 0 8px;
+}
+
+h1 {
+    font-family: 'Anton', sans-serif;
+    font-size: clamp(72px, 15vw, 130px);
+    color: #fff;
+    display: block;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    text-shadow: 0 4px 60px rgba(0, 0, 0, 0.9);
+    line-height: 0.9;
     cursor: default;
 }
 
-a {
-    text-decoration: none;
+h2 {
+    font-family: 'Anton', sans-serif;
+    font-size: clamp(54px, 10vw, 92px);
+    -webkit-text-stroke: 2px rgba(238, 38, 35, 0.9);
+    color: transparent;
+    display: block;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    line-height: 0.9;
+    cursor: default;
 }
 
-/* ── Modern Buttons ───────────────────────────── */
+h3 {
+    font-family: 'Anton', sans-serif;
+    font-size: clamp(72px, 15vw, 130px);
+    color: #fff;
+    display: block;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    text-shadow: 0 4px 60px rgba(0, 0, 0, 0.9);
+    line-height: 0.9;
+    cursor: default;
+}
+
+/* ── Styles line ──────────────────────────────── */
+.styles-line {
+    margin-top: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.style-word {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 300;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.42);
+}
+
+.style-dot {
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: rgba(238, 38, 35, 0.5);
+    flex-shrink: 0;
+}
+
+/* ── Action buttons ───────────────────────────── */
+.action-buttons {
+    margin-top: 40px;
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.action-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    flex: 1;
+    min-width: 100px;
+    max-width: 150px;
+    transition: transform 0.25s ease;
+}
+
+.action-btn:hover { transform: translateY(-3px); }
+
+.action-icon {
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1.5px solid rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.action-icon svg {
+    width: 22px;
+    height: 22px;
+    fill: rgba(255, 255, 255, 0.75);
+}
+
+.action-btn:hover .action-icon {
+    background: rgba(238, 38, 35, 0.15);
+    border-color: rgba(238, 38, 35, 0.5);
+    box-shadow: 0 6px 24px rgba(238, 38, 35, 0.25);
+}
+
+.action-btn:hover .action-icon svg { fill: #fff; }
+
+.action-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    font-weight: 300;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.4);
+}
+
+/* ── CTA zone ─────────────────────────────────── */
+.cta-zone {
+    position: relative;
+    z-index: 1;
+    padding: 44px 40px 52px;
+    text-align: center;
+}
+
+/* ── Buttons ──────────────────────────────────── */
 .btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 8px;
-    padding: 12px 28px;
-    border: 1px solid rgba(238, 38, 35, 0.4);
-    border-radius: 50px;
-    background: linear-gradient(135deg, rgba(238, 38, 35, 0.15), rgba(139, 0, 0, 0.25));
-    color: #f0f0f0;
+    padding: 10px 24px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+    background: rgba(0, 0, 0, 0.35);
+    color: rgba(255, 255, 255, 0.45);
     font-family: 'Inter', sans-serif;
-    font-size: 0.9em;
+    font-size: 11px;
     font-weight: 400;
-    letter-spacing: 2px;
+    letter-spacing: 3px;
     text-transform: uppercase;
     text-decoration: none;
     cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    position: relative;
-    overflow: hidden;
-}
-
-.btn::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.06), transparent);
-    transition: left 0.5s ease;
-}
-
-.btn:hover::before {
-    left: 100%;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
 }
 
 .btn:hover {
-    border-color: rgba(238, 38, 35, 0.8);
-    background: linear-gradient(135deg, rgba(238, 38, 35, 0.3), rgba(139, 0, 0, 0.45));
-    box-shadow: 0 0 25px rgba(238, 38, 35, 0.3),
-        0 4px 15px rgba(0, 0, 0, 0.3);
-    transform: translateY(-2px);
+    border-color: rgba(238, 38, 35, 0.4);
+    color: rgba(255, 255, 255, 0.75);
+    background: rgba(238, 38, 35, 0.1);
 }
 
-.btn:active {
-    transform: translateY(0);
-    box-shadow: 0 0 15px rgba(238, 38, 35, 0.2);
-}
-
-/* CTA Button — large call-to-action */
 .btn-cta {
-    padding: 16px 40px;
-    font-size: 1.05em;
-    font-weight: 600;
-    letter-spacing: 3px;
-    border-color: rgba(238, 38, 35, 0.6);
-    background: linear-gradient(135deg, rgba(238, 38, 35, 0.25), rgba(180, 10, 10, 0.4));
-    box-shadow: 0 0 20px rgba(238, 38, 35, 0.15);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    font-family: 'Anton', sans-serif;
+    font-size: 18px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #fff;
+    background: linear-gradient(135deg, #ee2623, #8b0000);
+    border: none;
+    padding: 18px 56px;
+    border-radius: 2px;
+    cursor: pointer;
+    text-decoration: none;
+    box-shadow: 0 4px 40px rgba(238, 38, 35, 0.5), 0 2px 16px rgba(0, 0, 0, 0.7);
+    transition: box-shadow 0.3s ease, transform 0.2s ease;
 }
 
 .btn-cta:hover {
-    background: linear-gradient(135deg, rgba(238, 38, 35, 0.45), rgba(180, 10, 10, 0.6));
-    box-shadow: 0 0 35px rgba(238, 38, 35, 0.4),
-        0 6px 20px rgba(0, 0, 0, 0.4);
-    transform: translateY(-3px);
+    box-shadow: 0 6px 50px rgba(238, 38, 35, 0.65), 0 4px 20px rgba(0, 0, 0, 0.8);
+    transform: translateY(-2px);
 }
 
-/* Button group */
-.button-group {
+.btn-cta:active { transform: translateY(0); }
+
+.btn-secondary-row {
     display: flex;
-    flex-wrap: wrap;
-    gap: 14px;
+    gap: 12px;
     justify-content: center;
-    margin: 24px 0;
+    margin-top: 14px;
+    flex-wrap: wrap;
 }
 
-/* ── Social Icons ─────────────────────────────── */
-.social {
-    margin: 25px 0;
+/* ── Social icons ─────────────────────────────── */
+.social-row {
     display: flex;
     gap: 6px;
     justify-content: center;
+    margin: 24px 0 0;
+}
+
+.social-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 2px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    transition: border-color 0.3s ease, background 0.3s ease;
+}
+
+.social-icon svg {
+    width: 16px;
+    height: 16px;
+    fill: rgba(255, 255, 255, 0.3);
+    transition: fill 0.3s ease;
+}
+
+.social-icon:hover {
+    border-color: rgba(238, 38, 35, 0.4);
+    background: rgba(238, 38, 35, 0.1);
+}
+
+.social-icon:hover svg { fill: rgba(255, 255, 255, 0.7); }
+
+/* ── Info bar ─────────────────────────────────── */
+.info-bar {
+    background: rgba(4, 4, 4, 0.98);
+    border-top: 1px solid rgba(238, 38, 35, 0.2);
+    padding: 20px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.info-address {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 300;
+    letter-spacing: 2px;
+    color: rgba(255, 255, 255, 0.4);
+    text-transform: uppercase;
+    line-height: 1.8;
+}
+
+.info-address strong {
+    color: rgba(255, 255, 255, 0.75);
+    font-weight: 400;
+    display: block;
+}
+
+.badges {
+    display: flex;
+    gap: 8px;
     flex-wrap: wrap;
 }
 
-.ico {
-    width: 58px;
-    margin: 8px;
-    border-radius: 50%;
-    padding: 10px;
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+.badge {
+    font-family: 'Inter', sans-serif;
+    font-size: 9px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border-radius: 2px;
+    color: rgba(255, 255, 255, 0.38);
+    border: 1px solid rgba(255, 255, 255, 0.07);
 }
 
-.ico:hover {
-    transform: scale(1.2) translateY(-3px);
-    background: rgba(238, 38, 35, 0.15);
-    border-color: rgba(238, 38, 35, 0.4);
-    box-shadow: 0 6px 20px rgba(238, 38, 35, 0.25);
+.badge-accent {
+    color: rgba(238, 38, 35, 0.85);
+    border-color: rgba(238, 38, 35, 0.22);
+    background: rgba(238, 38, 35, 0.06);
 }
 
-/* ── Info Section ─────────────────────────────── */
-.info-section {
-    margin-top: 10px;
+/* ── Instagram Feed ───────────────────────────── */
+.ig-section {
+    padding: 56px 0 48px;
+    background: #060606;
+    border-top: 1px solid rgba(238, 38, 35, 0.1);
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
-.info-section p {
-    font-size: 0.95em;
-    color: #bbb;
-    line-height: 1.6;
+.ig-section.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
-.divider {
-    width: 60px;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, rgba(238, 38, 35, 0.5), transparent);
-    margin: 25px auto;
-    border: none;
+.ig-section-header {
+    padding: 0 40px;
+    margin-bottom: 32px;
+    display: flex;
+    align-items: baseline;
+    gap: 20px;
+}
+
+.ig-section-title {
+    font-family: 'Anton', sans-serif;
+    font-size: 32px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #fff;
+}
+
+.ig-handle {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: rgba(238, 38, 35, 0.65);
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.ig-handle:hover { color: #ee2623; }
+
+.ig-carousel {
+    display: flex;
+    gap: 3px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding: 0 40px 16px;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.ig-carousel::-webkit-scrollbar { display: none; }
+
+.ig-item {
+    flex: 0 0 180px;
+    height: 180px;
+    scroll-snap-align: start;
+    position: relative;
+    border-radius: 2px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.ig-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: brightness(0.85);
+    transition: transform 0.5s ease, filter 0.35s ease;
+}
+
+.ig-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(238, 38, 35, 0.2), 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.ig-item:hover img {
+    transform: scale(1.06);
+    filter: brightness(1);
+}
+
+.ig-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, rgba(238,38,35,0.0) 0%, rgba(0,0,0,0.5) 100%);
+    opacity: 0;
+    transition: opacity 0.35s ease;
+}
+
+.ig-item:hover .ig-overlay { opacity: 1; }
+
+.ig-overlay svg {
+    width: 28px;
+    height: 28px;
+    fill: white;
+    filter: drop-shadow(0 2px 8px rgba(0,0,0,0.5));
+}
+
+.ig-cta {
+    text-align: center;
+    margin-top: 24px;
+    padding: 0 40px;
 }
 
 /* ── Footer ───────────────────────────────────── */
 footer {
-    display: none;
-    text-align: center;
-    padding: 18px 20px;
-    background: rgba(15, 15, 15, 0.7);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border-top: 1px solid rgba(238, 38, 35, 0.15);
+    background: #030303;
+    border-top: 1px solid rgba(255, 255, 255, 0.04);
+    padding: 20px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.footer-logo {
+    height: 26px;
+    width: auto;
+    opacity: 0.2;
+}
+
+.footer-name {
+    font-family: 'Anton', sans-serif;
+    font-size: 14px;
+    letter-spacing: 3px;
+    color: rgba(255, 255, 255, 0.18);
+    text-transform: uppercase;
 }
 
 footer a {
-    color: rgba(238, 38, 35, 0.6);
     font-family: 'Inter', sans-serif;
-    font-size: 0.8em;
-    font-weight: 300;
+    font-size: 10px;
     letter-spacing: 3px;
     text-transform: uppercase;
+    color: rgba(238, 38, 35, 0.45);
+    text-decoration: none;
     transition: color 0.3s ease;
 }
 
-footer a:hover {
-    color: #ee2623;
-}
+footer a:hover { color: #ee2623; }
 
-/* ── Fade-in Animation ────────────────────────── */
+/* ── Fade-in animations ───────────────────────── */
 @keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(25px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(25px); }
+    to   { opacity: 1; transform: translateY(0); }
 }
 
-.fade-in {
-    animation: fadeInUp 0.8s ease-out both;
+.fade-in         { animation: fadeInUp 0.8s ease-out both; }
+.fade-in-delay   { animation: fadeInUp 0.8s ease-out 0.2s both; }
+.fade-in-delay-2 { animation: fadeInUp 0.8s ease-out 0.4s both; }
+
+.fade-in-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
-.fade-in-delay {
-    animation: fadeInUp 0.8s ease-out 0.2s both;
+.fade-in-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
-.fade-in-delay-2 {
-    animation: fadeInUp 0.8s ease-out 0.4s both;
-}
-
-/* ── Privacy Page ─────────────────────────────── */
+/* ── Privacy page ─────────────────────────────── */
 .privacy-main {
     max-width: 800px;
     margin: 40px auto;
@@ -303,12 +606,17 @@ footer a:hover {
 .privacy-main h1 {
     font-size: 2.2em;
     margin-bottom: 30px;
+    -webkit-text-stroke: unset;
+    color: #fff;
+    text-shadow: none;
+    line-height: 1.2;
 }
 
 .privacy-main p {
     max-width: 100%;
     font-size: 0.95em;
     white-space: pre-line;
+    color: #d4d4d4;
 }
 
 .btn-back {
@@ -351,7 +659,7 @@ footer a:hover {
     box-shadow: 0 0 12px rgba(238, 38, 35, 0.25);
 }
 
-/* ── Paper / Aftercare Page ──────────────────── */
+/* ── Paper / Aftercare page ──────────────────── */
 .paper {
     background: #faf9f6;
     color: #1a1a1a;
@@ -360,10 +668,7 @@ footer a:hover {
     margin: 30px auto 50px;
     padding: 50px 45px;
     border-radius: 4px;
-    box-shadow:
-        0 2px 20px rgba(0, 0, 0, 0.4),
-        0 0 60px rgba(0, 0, 0, 0.15),
-        inset 0 0 80px rgba(0, 0, 0, 0.02);
+    box-shadow: 0 2px 20px rgba(0,0,0,0.4), 0 0 60px rgba(0,0,0,0.15);
     position: relative;
     line-height: 1.7;
 }
@@ -371,35 +676,25 @@ footer a:hover {
 .paper::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
+    top: 0; left: 0; right: 0;
     height: 5px;
     background: linear-gradient(90deg, #ee2623, #8b0000, #ee2623);
     border-radius: 4px 4px 0 0;
 }
 
 .paper-title {
-    font-family: 'Bebas Neue', sans-serif;
+    font-family: 'Anton', sans-serif;
     font-size: 2em;
     letter-spacing: 4px;
     color: #1a1a1a;
     text-align: center;
     margin-bottom: 30px;
-    background: none;
-    -webkit-background-clip: unset;
-    -webkit-text-fill-color: #1a1a1a;
-    background-clip: unset;
+    -webkit-text-stroke: unset;
     text-shadow: none;
+    line-height: 1.2;
 }
 
-.paper-content p {
-    color: #333;
-    font-size: 0.95em;
-    max-width: 100%;
-    padding: 0;
-    cursor: default;
-}
+.paper-content p { color: #333; font-size: 0.95em; max-width: 100%; cursor: default; }
 
 .step {
     display: flex;
@@ -407,55 +702,43 @@ footer a:hover {
     align-items: flex-start;
     margin-bottom: 20px;
     padding: 14px 16px;
-    background: rgba(0, 0, 0, 0.02);
+    background: rgba(0,0,0,0.02);
     border-radius: 8px;
-    border-left: 3px solid rgba(238, 38, 35, 0.4);
+    border-left: 3px solid rgba(238,38,35,0.4);
     transition: background 0.3s ease;
 }
 
-.step:hover {
-    background: rgba(238, 38, 35, 0.04);
-}
-
-.step-icon {
-    font-size: 1.5em;
-    flex-shrink: 0;
-    margin-top: 2px;
-}
+.step:hover { background: rgba(238,38,35,0.04); }
+.step-icon { font-size: 1.5em; flex-shrink: 0; margin-top: 2px; }
 
 .paper-divider {
     width: 100%;
     height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(238, 38, 35, 0.3), transparent);
+    background: linear-gradient(90deg, transparent, rgba(238,38,35,0.3), transparent);
     margin: 30px 0;
     border: none;
 }
 
 .warning-box {
-    background: rgba(238, 38, 35, 0.06);
-    border: 1px solid rgba(238, 38, 35, 0.2);
+    background: rgba(238,38,35,0.06);
+    border: 1px solid rgba(238,38,35,0.2);
     border-radius: 10px;
     padding: 24px;
     margin-bottom: 20px;
 }
 
 .warning-title {
-    font-family: 'Bebas Neue', sans-serif;
+    font-family: 'Anton', sans-serif;
     font-size: 1.3em;
     letter-spacing: 3px;
     color: #c0392b;
     margin-bottom: 14px;
-    background: none;
-    -webkit-background-clip: unset;
-    -webkit-text-fill-color: #c0392b;
-    background-clip: unset;
+    -webkit-text-stroke: unset;
     text-shadow: none;
+    line-height: 1.2;
 }
 
-.warning-box ul {
-    list-style: none;
-    padding: 0;
-}
+.warning-box ul { list-style: none; padding: 0; }
 
 .warning-box li {
     padding: 6px 0 6px 22px;
@@ -475,245 +758,52 @@ footer a:hover {
 }
 
 .note-box {
-    background: rgba(52, 152, 219, 0.06);
-    border: 1px solid rgba(52, 152, 219, 0.2);
+    background: rgba(52,152,219,0.06);
+    border: 1px solid rgba(52,152,219,0.2);
     border-radius: 10px;
     padding: 18px 22px;
     margin-top: 10px;
 }
 
-.note-box p {
-    color: #555 !important;
-    font-size: 0.9em !important;
-    margin: 0;
-}
-
-@media screen and (max-width: 760px) {
-    .paper {
-        padding: 35px 24px;
-        margin: 20px auto 40px;
-    }
-
-    .paper-title {
-        font-size: 1.5em;
-        letter-spacing: 3px;
-    }
-
-    .step {
-        padding: 12px;
-    }
-
-    .step-icon {
-        font-size: 1.3em;
-    }
-}
-
-/* ── Instagram Feed Section ───────────────────── */
-.ig-section {
-    width: 100%;
-    padding: 50px 0 40px;
-    background: rgba(10, 10, 10, 0.85);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border-top: 1px solid rgba(238, 38, 35, 0.12);
-    border-bottom: 1px solid rgba(238, 38, 35, 0.12);
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
-}
-
-.ig-section.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.ig-header {
-    text-align: center;
-    margin-bottom: 30px;
-    padding: 0 20px;
-}
-
-.ig-title {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.8em;
-    letter-spacing: 6px;
-    background: linear-gradient(135deg, #ffffff, #cccccc);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    margin-bottom: 8px;
-}
-
-.ig-handle {
-    font-family: 'Inter', sans-serif;
-    font-size: 0.9em;
-    font-weight: 300;
-    letter-spacing: 2px;
-    color: rgba(238, 38, 35, 0.7);
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.ig-handle:hover {
-    color: #ee2623;
-}
-
-/* Carousel container */
-.ig-carousel {
-    display: flex;
-    gap: 14px;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    padding: 0 24px 16px;
-    scrollbar-width: none;         /* Firefox */
-    -ms-overflow-style: none;      /* IE/Edge */
-}
-
-.ig-carousel::-webkit-scrollbar {
-    display: none;                 /* Chrome/Safari */
-}
-
-/* Individual post item */
-.ig-item {
-    flex: 0 0 260px;
-    height: 260px;
-    scroll-snap-align: start;
-    position: relative;
-    border-radius: 12px;
-    overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    transition: transform 0.35s cubic-bezier(0.25, 0.8, 0.25, 1),
-                box-shadow 0.35s ease;
-}
-
-.ig-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
-}
-
-.ig-item:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 10px 30px rgba(238, 38, 35, 0.2),
-                0 4px 12px rgba(0, 0, 0, 0.4);
-    border-color: rgba(238, 38, 35, 0.3);
-}
-
-.ig-item:hover img {
-    transform: scale(1.08);
-}
-
-/* Instagram icon overlay */
-.ig-overlay {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(
-        135deg,
-        rgba(238, 38, 35, 0.0) 0%,
-        rgba(0, 0, 0, 0.5) 100%
-    );
-    opacity: 0;
-    transition: opacity 0.35s ease;
-}
-
-.ig-item:hover .ig-overlay {
-    opacity: 1;
-}
-
-.ig-overlay svg {
-    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.5));
-    transition: transform 0.3s ease;
-}
-
-.ig-item:hover .ig-overlay svg {
-    transform: scale(1.15);
-}
-
-/* CTA button */
-.ig-cta {
-    text-align: center;
-    margin-top: 24px;
-    padding: 0 20px;
-}
-
-/* ── Scroll Fade-in (generic) ────────────────── */
-.fade-in-scroll {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
-}
-
-.fade-in-scroll.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
+.note-box p { color: #555 !important; font-size: 0.9em !important; margin: 0; }
 
 /* ── Responsive ───────────────────────────────── */
-@media screen and (min-width: 601px) {
-    h1 {
-        font-size: 2.8em;
-    }
-}
+@media (max-width: 760px) {
+    .hero-content { padding: 28px 20px 0; }
 
-@media screen and (max-width: 760px) {
-    .container {
-        width: auto;
-    }
+    .site-logo { height: 80px; }
 
-    h1 {
-        font-size: 1.8em;
-        letter-spacing: 4px;
-    }
+    .eyebrow { font-size: 9px; letter-spacing: 5px; }
+    .location-line { font-size: 11px; letter-spacing: 4px; }
 
-    h2 {
-        font-size: 1.1em;
-        letter-spacing: 5px;
-    }
+    .styles-line { gap: 8px; }
+    .style-word { font-size: 9px; letter-spacing: 3px; }
 
-    p {
-        font-size: 0.95em;
-        padding: 0 16px;
-    }
+    .action-buttons { gap: 10px; margin-top: 28px; }
+    .action-btn { min-width: 86px; max-width: 110px; gap: 8px; }
+    .action-icon { width: 52px; height: 52px; }
+    .action-icon svg { width: 20px; height: 20px; }
+    .action-label { font-size: 9px; letter-spacing: 2px; }
 
-    .logo {
-        width: 50% !important;
-    }
+    .cta-zone { padding: 32px 20px 40px; }
+    .btn-cta { font-size: 15px; padding: 16px 36px; width: 100%; justify-content: center; }
+    .btn-secondary-row { flex-direction: column; align-items: center; }
+    .btn-secondary-row .btn { width: 100%; max-width: 280px; justify-content: center; }
 
-    .btn {
-        padding: 11px 22px;
-        font-size: 0.8em;
-    }
+    .info-bar { padding: 18px 20px; flex-direction: column; align-items: flex-start; }
+    .badges { gap: 6px; }
+    .badge { font-size: 8px; padding: 4px 10px; }
 
-    .btn-cta {
-        padding: 14px 32px;
-        font-size: 0.9em;
-    }
+    .ig-section-header { padding: 0 20px; }
+    .ig-section-title { font-size: 24px; }
+    .ig-carousel { padding: 0 20px 12px; gap: 4px; }
+    .ig-item { flex: 0 0 140px; height: 140px; }
+    .ig-cta { padding: 0 20px; }
 
-    .button-group {
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-    }
+    footer { padding: 16px 20px; flex-direction: column; gap: 10px; text-align: center; }
 
-    /* Instagram carousel mobile */
-    .ig-item {
-        flex: 0 0 200px;
-        height: 200px;
-    }
-
-    .ig-title {
-        font-size: 1.4em;
-        letter-spacing: 4px;
-    }
-
-    .ig-carousel {
-        gap: 10px;
-        padding: 0 16px 12px;
-    }
+    .paper { padding: 35px 24px; margin: 20px auto 40px; }
+    .paper-title { font-size: 1.5em; letter-spacing: 3px; }
+    .step { padding: 12px; }
+    .step-icon { font-size: 1.3em; }
 }
